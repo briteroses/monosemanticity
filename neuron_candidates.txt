@@ -1,0 +1,86 @@
+This is an informal notepad for writing down candidates for monosemantic neurons that we find in GPT-2-small. The notes are formatted:
+ + <layer and neuron id>
+    + <description of semantic concepts encapsulated>
+ - <layer and neuron id>
+    - <list multiple (strictly >1) semantic concepts the neuron encapsulates>
+
+
+ + layer 0, neuron 379 ⭐️
+    + >80% of firings are on a select set of words: "give", "get", "come" (and other forms of these three verbs), and also "some"
+
+ + layer 0, neuron 381
+    - no concept discernable
+
+ - layer 1, neuron 383
+    - noisy and random; few positive firings, but large percentage (75+%) of all words get slight negative firings
+
+ - layer 1, neuron 1866
+    - consistently activates at the first word of every data sample
+    - encoding position? downstream of attention heads that always attend to the first token?
+
+ - layer 2, neuron 1858
+    - sparse and random activations
+
+ - layer 2, neuron 386
+    - no concept discernable
+
+ - layer 3, neuron 1850
+    - almost entirely inhibitory
+    - activations are very frequent, easily ~50% of all words, so this is at least highly polysemantic
+
+ - layer 4, neuron 387
+    - activates often at the first word after any newline
+
+ + layer 4, neuron 1853 ⭐️
+    + consistently and exclusively activates on general preposition words, like "of" "about" "any" "up" "as" "to" "in"
+
+ + layer 5, neuron 1865
+    + consistently activates on phrases describing time or location. some random one-word activations otherwise, but for a prepositional time/location phrase the neuron will fire on every word in the phrase
+
+ - layer 5, neuron 182
+    + fires on question words, like "where" "when" "how"
+    - lots of other random firings too
+
+ + layer 6, neuron 185 ⭐️
+    + fires on any time-related word. year, week, day, season related words; weekday, time of day, dates, etc; as well as time prepositions and adjectives, like "recent", "before", "later", "ago", 
+
+ - layer 6, neuron 186
+    - fires a lot on the first word after every newline
+
+ - layer 6, neuron 1859
+    + consistently activates on almost all numerals
+    + consistently activates on names of English-speaking countries, cities, or geographical regions, but not those that are non-English-speaking
+    + consistently activates on first names but not last names
+    + activates somewhat often on past participle verbs, i.e. "was written" "was reported" etc. it will activate on "written" "reported" (but not "was")
+    - generally activates on adjectives ??
+    - lots of other random firings
+
+ - layer 7, neuron 1855
+    - noisy and highly active, easily ~2/3s or more of all tokens activated
+
+ + layer 7, neuron 380 ⭐️
+    + consistently triggers on any plural noun
+
+ + layer 8, neuron 1860 ⭐️
+    + consistently activates on months and seasons (- however, ignored one instance of "summer", and there weren't that many seasons in the data, so the seasons aspect may be weak)
+    - pretty noisy and activates on other random words, but I didn't find another semantic concept tying them together
+
+ - layer 8, neuron 387
+    - activates often at the first word after any newline
+
+ + layer 9, neuron 1867
+    + consistently and exclusively activates on prepositional phrases, usually "on <time/location>"
+
+ + layer 10, neuron 1862
+    + consistently activates on articles and forms of the word "be", like "a" "the" "is" "have/has" when used for a verb participle, etc
+    + also activates a lot on newlines
+    - highly noisy with random activations
+
+ + layer 10, neuron 379 ⭐️
+    + not semantic, but fires strongly on 100% of tokens, every single token, so could be interesting to scrub with random tokens
+
+ + layer 11, neuron 1862 ⭐️
+    + almost exclusively activates on the second newline behind a paragraph skip
+
+ + layer 11, neuron 385 ⭐️
+    + fires a lot on words throughout an entire sentence about recent politics, specifically presidential candidates: Trump, Obama, Hillary. otherwise, no strong firings
